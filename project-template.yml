@@ -20,9 +20,9 @@ steps:
 
   inputs:
 
-    gradleWrapperFile: '$(Parameters.wrapperScript)'
+    gradleWrapperFile: 'gradlew'
 
-    tasks: '$(Parameters.tasks)'
+    tasks: 'build'
 
 
 
