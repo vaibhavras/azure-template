@@ -1,6 +1,6 @@
 trigger:
   - master
 
+steps:
 
-  steps:
-    - template: project-template.yml
+  - template: project-template.yml
