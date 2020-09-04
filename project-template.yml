@@ -28,7 +28,7 @@
               PATH_FILTER="src/"
               CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
               MATCH_COUNT=0
-
+             if [[ MATCH_COUNT == 0 ]]; then
               echo "Checking for file changes..."
               for FILE in $CHANGED_FILES
               do
