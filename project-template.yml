@@ -50,7 +50,7 @@
             name: check_changes
             displayName: 'Check changed files'
 
-      - job: Build
+#      - job: Build
         displayName: 'Only when source code changed'
         dependsOn: CheckChanges # <- Important: Mark previous job as dependency
         condition: eq(dependencies.CheckChanges.outputs['check_changes.SOURCE_CODE_CHANGED'], 'true')
