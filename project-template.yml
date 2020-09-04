@@ -49,7 +49,7 @@
               fi
             name: check_changes
             displayName: 'Check changed files'
-
+#
 #      - job: Build
 #        displayName: 'Only when source code changed'
 #        dependsOn: CheckChanges # <- Important: Mark previous job as dependency
@@ -94,7 +94,7 @@
 #    condition: succeededOrFailed()
 #
 #      - job: Rest
-displayName: 'Will always be execured'
+#        displayName: 'Will always be execured'
 #
 #
 #
