@@ -54,7 +54,7 @@
 #        displayName: 'Only when source code changed'
 #        dependsOn: CheckChanges # <- Important: Mark previous job as dependency
 #        condition: eq(dependencies.CheckChanges.outputs['check_changes.SOURCE_CODE_CHANGED'], 'true')
-       steps:
+steps:
   - task: Gradle@2
 
     displayName: 'gradlew build'
