@@ -94,7 +94,7 @@
 #    condition: succeededOrFailed()
 #
 #      - job: Rest
-        displayName: 'Will always be execured'
+displayName: 'Will always be execured'
 #
 #
 #
