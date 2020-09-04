@@ -54,51 +54,51 @@
 #        displayName: 'Only when source code changed'
 #        dependsOn: CheckChanges # <- Important: Mark previous job as dependency
 #        condition: eq(dependencies.CheckChanges.outputs['check_changes.SOURCE_CODE_CHANGED'], 'true')
-steps:
-  - task: Gradle@2
-
-    displayName: 'gradlew build'
-
-    inputs:
-
-      gradleWrapperFile: 'gradlew'
-
-      tasks: 'build'
-
-
-
-  - task: CopyFiles@2
-
-    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-
-    inputs:
-
-      SourceFolder: '$(system.defaultworkingdirectory)'
-
-      Contents: '**/*.jar'
-
-      TargetFolder: '$(build.artifactstagingdirectory)'
-
-    condition: succeededOrFailed()
-
-
-
-  - task: PublishBuildArtifacts@1
-
-    displayName: 'Publish Artifact: drop'
-
-    inputs:
-
-      PathtoPublish: '$(build.artifactstagingdirectory)'
-
-    condition: succeededOrFailed()
-
-      - job: Rest
-        displayName: 'Will always be execured'
-
-
-
-
-
-
-
+#steps:
+#  - task: Gradle@2
+#
+#    displayName: 'gradlew build'
+#
+#    inputs:
+#
+#      gradleWrapperFile: 'gradlew'
+#
+#      tasks: 'build'
+#
+#
+#
+#  - task: CopyFiles@2
+#
+#    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+#
+#    inputs:
+#
+#      SourceFolder: '$(system.defaultworkingdirectory)'
+#
+#      Contents: '**/*.jar'
+#
+#      TargetFolder: '$(build.artifactstagingdirectory)'
+#
+#    condition: succeededOrFailed()
+#
+#
+#
+#  - task: PublishBuildArtifacts@1
+#
+#    displayName: 'Publish Artifact: drop'
+#
+#    inputs:
+#
+#      PathtoPublish: '$(build.artifactstagingdirectory)'
+#
+#    condition: succeededOrFailed()
+#
+#      - job: Rest
+#        displayName: 'Will always be execured'
+#
+#
+#
+#
+#
+#
+#
