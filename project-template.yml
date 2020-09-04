@@ -20,9 +20,9 @@
 
 #stages:
 #  - stage: 'Build'
-    jobs:
-      - job: CheckChanges
-        displayName: 'Check changes'
+#    jobs:
+#      - job: CheckChanges
+#        displayName: 'Check changes'
         steps:
           - bash: |
               PATH_FILTER="src/"
