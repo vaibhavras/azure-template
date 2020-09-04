@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class Sample {
 
-    @Autowired
-    private Environment env;
+//    @Autowired
+//    private Environment env;
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -20,7 +20,7 @@ public class Sample {
     @ResponseStatus(HttpStatus.OK)
     public String hello() {
         logger.info("From hello().");
-        logger.info("print java home {}", env.getProperty("JAVA_HOME"));
+//        logger.info("print java home {}", env.getProperty("JAVA_HOME"));
         return "Hello from Azure template poc";
     }
 
