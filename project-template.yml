@@ -18,7 +18,8 @@
 #      - env/*
 #      - tests/*
 
-stage: 'Build'
+#stages:
+#  - stage: 'Build'
     jobs:
       - job: CheckChanges
         displayName: 'Check changes'
