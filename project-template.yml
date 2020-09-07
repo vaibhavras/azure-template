@@ -28,10 +28,8 @@
               PATH_FILTER="src/"
               CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
               MATCH_COUNT=0
-              if [[ $MATCH_COUNT == 0 ]]; then
-                echo "Checking for file changes..."
-              else
-                echo "IGNORE changed"
+
+              echo "Checking for file changes..."
               for FILE in $CHANGED_FILES
               do
                 if [[ $FILE == *$PATH_FILTER* ]]; then
@@ -49,6 +47,7 @@
               else
                 echo "##vso[task.setvariable variable=SOURCE_CODE_CHANGED;isOutput=true]false"
               fi
+            failOnStderr: SOURCE_CODE_CHANGED
             name: check_changes
             displayName: 'Check changed files'
 #
