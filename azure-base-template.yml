@@ -4,4 +4,4 @@ trigger:
 steps:
 
   - template: sonar-prepare-analysis-template.yml
-  - template: project-template.yml
+  - template: gradle-backend-test-and-build-template.yml
