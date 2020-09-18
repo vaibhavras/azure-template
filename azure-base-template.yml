@@ -3,5 +3,5 @@ trigger:
 
 steps:
 
-  - template: project-template.yml
   - template: sonar-prepare-analysis-template.yml
+  - template: project-template.yml
