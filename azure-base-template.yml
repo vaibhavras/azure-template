@@ -5,3 +5,5 @@ steps:
 
   - template: sonar-prepare-analysis-template.yml
   - template: gradle-backend-test-and-build-template.yml
+  - template: sonar-publish-report.yml
+  - template: copy-and-publish-artifact.yml
