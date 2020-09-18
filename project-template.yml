@@ -12,7 +12,6 @@
 
 #  8a3e7ca7ee72dd267914a681293f59ea7d8448f9
 
-steps:
 
   - task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@4
     displayName: 'Prepare analysis on SonarQube'
