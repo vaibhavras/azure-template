@@ -6,100 +6,51 @@
 
 
 
-#Your build pipeline references an undefined variable named ‘Parameters.wrapperScript’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ï¿½Parameters.wrapperScriptï¿½. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
-#Your build pipeline references an undefined variable named ‘Parameters.tasks’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ï¿½Parameters.tasksï¿½. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
-#name: $(BuildID)
-#trigger:
-#  paths:
-#    include:
-#      - src/*
-#      - env/*
-#      - tests/*
 
-#stages:
-#  - stage: 'Build'
-#    jobs:
-#      - job: CheckChanges
-#        displayName: 'Check changes'
-      steps:
-          - bash: |
-              PATH_FILTER="src/"
-              CHANGED_FILES=$(git diff HEAD HEAD~ --name-only)
-              MATCH_COUNT=0
 
-              echo "Checking for file changes..."
-              for FILE in $CHANGED_FILES
-              do
-                if [[ $FILE == *$PATH_FILTER* ]]; then
-                  echo "MATCH:  ${FILE} changed"
-                  MATCH_FOUND=true
-                  MATCH_COUNT=$(($MATCH_COUNT+1))
-                else
-                  echo "IGNORE: ${FILE} changed"
-                fi
-              done
+steps:
 
-              echo "$MATCH_COUNT match(es) for filter '$PATH_FILTER' found."
-              if [[ $MATCH_COUNT -gt 0 ]]; then
-                echo "##vso[task.setvariable variable=SOURCE_CODE_CHANGED;isOutput=true]true"
-              else
-                echo "##vso[task.setvariable variable=SOURCE_CODE_CHANGED;isOutput=true]false"
-              fi
-            failOnStderr: false
-            name: check_changes
-            displayName: 'Check changed files'
-#
-#      - job: Build
-#        displayName: 'Only when source code changed'
-#        dependsOn: CheckChanges # <- Important: Mark previous job as dependency
-#        condition: eq(dependencies.CheckChanges.outputs['check_changes.SOURCE_CODE_CHANGED'], 'true')
-#steps:
-#  - task: Gradle@2
-#
-#    displayName: 'gradlew build'
-#
-#    inputs:
-#
-#      gradleWrapperFile: 'gradlew'
-#
-#      tasks: 'build'
-#
-#
-#
-#  - task: CopyFiles@2
-#
-#    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-#
-#    inputs:
-#
-#      SourceFolder: '$(system.defaultworkingdirectory)'
-#
-#      Contents: '**/*.jar'
-#
-#      TargetFolder: '$(build.artifactstagingdirectory)'
-#
-#    condition: succeededOrFailed()
-#
-#
-#
-#  - task: PublishBuildArtifacts@1
-#
-#    displayName: 'Publish Artifact: drop'
-#
-#    inputs:
-#
-#      PathtoPublish: '$(build.artifactstagingdirectory)'
-#
-#    condition: succeededOrFailed()
-#
-#      - job: Rest
-#        displayName: 'Will always be execured'
-#
-#
-#
-#
-#
-#
-#
+    - task: Gradle@2
+
+      displayName: 'gradlew build'
+
+      inputs:
+
+          gradleWrapperFile: 'gradlew'
+
+          tasks: 'build'
+
+
+
+    - task: CopyFiles@2
+
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+
+      inputs:
+
+          SourceFolder: '$(system.defaultworkingdirectory)'
+
+          Contents: '**/*.jar'
+
+          TargetFolder: '$(build.artifactstagingdirectory)'
+
+      condition: succeededOrFailed()
+
+
+
+    - task: PublishBuildArtifacts@1
+
+      displayName: 'Publish Artifact: drop'
+
+      inputs:
+
+          PathtoPublish: '$(build.artifactstagingdirectory)'
+
+      condition: succeededOrFailed()
+
+
+
