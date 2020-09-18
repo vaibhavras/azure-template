@@ -22,7 +22,7 @@ class SampleTestUnitTestController {
         String responseEntity = sampleController.hello();
 
 
-        assertEquals("Hello from Azure template poc", responseEntity);
+        assertEquals("Hello from Azur template poc", responseEntity);
 //        assertEquals(responseEntity.getBody(), detectedLanguage);
     }
 }
