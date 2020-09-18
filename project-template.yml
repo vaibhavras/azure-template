@@ -12,28 +12,7 @@
 
 #  8a3e7ca7ee72dd267914a681293f59ea7d8448f9
 
-
-  - task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@4
-    displayName: 'Prepare analysis on SonarQube'
-    inputs:
-      SonarQube: 'GMT-Sonar'
-      scannerMode: Other
-      extraProperties: |
-        # Additional properties that will be passed to the scanner,
-        # Put one key=value per line, example:
-        # sonar.exclusions=**/*.bin
-        sonar.projectKey=$(sonar.projectKey)
-        sonar.projectName=$(sonar.projectName)
-        sonar.projectVersion=1.0
-        sonar.sourceEncoding=UTF-8
-        sonar.projectDescription=Generic azure template.
-        sonar.junit.reportPaths = ./build/test-results/test/TEST-*.xml
-        sonar.tests=./src/test/java
-        sonar.sources=./src/main/java
-        sonar.java.binaries=./build/classes
-        sonar.jacoco.reportPaths=./build/jacoco/test.exec
-        sonar.java.coveragePlugin=jacoco
-
+steps:
 
   - task: Gradle@2
     displayName: 'gradlew build'
