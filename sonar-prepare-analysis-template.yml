@@ -9,6 +9,7 @@ steps:
         # Additional properties that will be passed to the scanner,
         # Put one key=value per line, example:
         # sonar.exclusions=**/*.bin
+        sonar.login=$(sonar.login)
         sonar.projectKey=$(sonar.projectKey)
         sonar.projectName=$(sonar.projectName)
         sonar.projectVersion=1.0
